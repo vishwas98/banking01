@@ -1,4 +1,4 @@
-package banking;
+package banking01;
 import java.util.*;
 
 
@@ -17,7 +17,7 @@ public class Banking01
     public static void main(String[] args)
     {
         Scanner inp=new Scanner(System.in);
-        int choice,i,accno,amt,sum=0,max,j,acc_withdraw,acc_deposit;
+        int choice,i,accno,balance=0,amt,sum=0,max,j,acc_withdraw,acc_deposit,account_no;
         int a[]=new int[10];
         boolean found4=false;
         Application[] obj=new Application[6];
@@ -62,8 +62,10 @@ public class Banking01
                         if(!found)
                             System.out.println("Account doesnot exist");
                         else
-                        {                            
-                            obj[i].deposit(); 
+                        {     
+                            System.out.println("Enter the amount to deposit::");
+                            amt=inp.nextInt();
+                            System.out.println("balance :"+obj[i].deposit(accno,amt,balance)); 
                         }
                         break;
                 case 3:System.out.println("Enter the account no::");
@@ -79,7 +81,9 @@ public class Banking01
                         }
                         if(found1)
                         {
-                            obj[i].withdraw();
+                            System.out.println("Enter the amount to withdraw::");
+                            amt=inp.nextInt();
+                            System.out.println("Balance="+obj[i].withdraw(accno,amt,balance));
                         }
                         else
                             System.out.println("Account doesnot exist");
